@@ -36,6 +36,7 @@ class Cliente extends \yii\db\ActiveRecord
             [['Cedula', 'Telefono'], 'string', 'max' => 10],
             [['Nombre'], 'string', 'max' => 100],
             [['Email'], 'string', 'max' => 200],
+            [['Email'], 'email'],
             [['Genero'], 'string', 'max' => 20],
         ];
     }

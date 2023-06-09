@@ -52,12 +52,9 @@ $this->params['breadcrumbs'][] = $this->title;
     });
 
     $(document).ready(function() {
-    $('#no-button').click(function(event) {
-        
+    $('#no-button').click(function(event) { 
         console.log('click2');
         event.preventDefault();
-        
-        
         //Realiza una solicitud AJAX para obtener el contenido del formulario
         $.ajax({
         url: '<?php echo Url::toRoute('camposextra/create2'); ?>', 

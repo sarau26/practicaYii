@@ -12,15 +12,15 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'Cedula')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'Cedula')->textInput(['maxlength' => true, 'autocomplete' => 'off']) ?>
 
-    <?= $form->field($model, 'Nombre')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'Nombre')->textInput(['maxlength' => true, 'autocomplete' => 'off']) ?>
 
-    <?= $form->field($model, 'Telefono')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'Telefono')->textInput(['maxlength' => true, 'autocomplete' => 'off']) ?>
 
-    <?= $form->field($model, 'Email')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'Email')->textInput(['maxlength' => true, 'autocomplete' => 'off']) ?>
 
-    <?= $form->field($model, 'Genero')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'Genero')->textInput(['maxlength' => true, 'autocomplete' => 'off']) ?>
 
     <?= $form->errorSummary($model, ['class' => 'alert alert-danger']) ?>
 
