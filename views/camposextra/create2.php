@@ -8,7 +8,7 @@ use yii\helpers\Html;
 
 $this->title = 'Motivo negatividad';
 //$this->params['breadcrumbs'][] = ['label' => 'Camposextra', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="campoextra-create">
 

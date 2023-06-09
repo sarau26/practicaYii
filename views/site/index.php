@@ -17,5 +17,4 @@ $this->title = 'Ventas';
 
     </div>
 
-
 </div>
