@@ -95,13 +95,32 @@ class CamposextraController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['/site/index']);
+                return $this->redirect(['/camposextra/create']);
             }
         } else {
             $model->loadDefaultValues();
         }
 
         return $this->render('create2', [
+            'model' => $model,
+            'ID' => $ID_EXTERNO,
+
+        ]);
+    }
+
+    public function actionFormulario($ID_EXTERNO)
+    {
+        $model = new Camposextra();
+
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post()) && $model->save()) {
+                return $this->redirect(['/site/index']);
+            }
+        } else {
+            $model->loadDefaultValues();
+        }
+
+        return $this->renderPartial('_form4', [
             'model' => $model,
             'ID' => $ID_EXTERNO,
 
