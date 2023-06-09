@@ -70,62 +70,59 @@ class CamposextraController extends Controller
      */
 
     
-    public function actionCreate($ID_EXTERNO)
-    {
-        $model = new Camposextra();
-
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['/site/index']);
+        public function actionCreate($ID_EXTERNO)
+        {
+            $model = new Camposextra();
+        
+            if ($this->request->isPost) {
+                if ($model->load($this->request->post()) && $model->save()) {
+                    if ($this->request->isAjax) {
+                        return $this->renderPartial('_form2', [
+                            'model' => $model,
+                            'ID' => $ID_EXTERNO,
+                        ]);
+                    } else {
+                        return $this->redirect(['/site/index']);
+                    }
+                }
+            } else {
+                $model->loadDefaultValues();
             }
-        } else {
-            $model->loadDefaultValues();
+        
+            // Renderiza la vista 'create' normalmente para las solicitudes no AJAX
+            return $this->render('create', [
+                'model' => $model,
+                'ID' => $ID_EXTERNO,
+            ]);
         }
 
-        return $this->render('create', [
-            'model' => $model,
-            'ID' => $ID_EXTERNO,
-
-        ]);
-    }
-
-    public function actionCreate2($ID_EXTERNO)
-    {
-        $model = new Camposextra();
-
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['/camposextra/create']);
+        public function actionCreate2($ID_EXTERNO)
+        {
+            $model = new Camposextra();
+        
+            if ($this->request->isPost) {
+                if ($model->load($this->request->post()) && $model->save()) {  
+                    if ($this->request->isAjax) {
+                        
+                        return $this->renderPartial('_form3', [
+                            'model' => $model,
+                            'ID' => $ID_EXTERNO,
+                        ]);
+                    } else {
+                        return $this->redirect(['/site/index']);
+                    }
+                }
+            } else {
+                $model->loadDefaultValues();
             }
-        } else {
-            $model->loadDefaultValues();
+        
+            
+            return $this->render('create2', [
+                'model' => $model,
+                'ID' => $ID_EXTERNO,
+            ]);
         }
 
-        return $this->render('create2', [
-            'model' => $model,
-            'ID' => $ID_EXTERNO,
-
-        ]);
-    }
-
-    public function actionFormulario($ID_EXTERNO)
-    {
-        $model = new Camposextra();
-
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['/site/index']);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
-
-        return $this->renderPartial('_form4', [
-            'model' => $model,
-            'ID' => $ID_EXTERNO,
-
-        ]);
-    }
 
     /**
      * Updates an existing Camposextra model.
